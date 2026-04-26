@@ -1,0 +1,52 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="300dp"
+    android:height="250dp"
+    android:viewportWidth="300"
+    android:viewportHeight="250">
+
+    <!-- Weekday Labels -->
+    <path android:fillColor="#757575" android:pathData="M20,20h20v20h-20z" /> <!-- Su -->
+    <path android:fillColor="#757575" android:pathData="M60,20h20v20h-20z" /> <!-- M -->
+    <path android:fillColor="#757575" android:pathData="M100,20h20v20h-20z" /> <!-- Tu -->
+    <path android:fillColor="#757575" android:pathData="M140,20h20v20h-20z" /> <!-- We -->
+    <path android:fillColor="#757575" android:pathData="M180,20h20v20h-20z" /> <!-- Th -->
+    <path android:fillColor="#757575" android:pathData="M220,20h20v20h-20z" /> <!-- Fr -->
+    <path android:fillColor="#757575" android:pathData="M260,20h20v20h-20z" /> <!-- Sa -->
+
+    <!-- Calendar Grid Simulation (Rows) -->
+    <!-- Row 1 -->
+    <path android:fillColor="#EEEEEE" android:pathData="M20,60h20v20h-20z" />
+    <path android:fillColor="#EEEEEE" android:pathData="M60,60h20v20h-20z" />
+    <path android:fillColor="#EEEEEE" android:pathData="M100,60h20v20h-20z" />
+    <path android:fillColor="#EEEEEE" android:pathData="M140,60h20v20h-20z" />
+    <path android:fillColor="#000000" android:pathData="M180,60h20v20h-20z" /> <!-- 1 -->
+    <path android:fillColor="#EEEEEE" android:pathData="M220,60h20v20h-20z" />
+    <path android:fillColor="#EEEEEE" android:pathData="M260,60h20v20h-20z" />
+
+    <!-- Row 2 -->
+    <path android:fillColor="#EEEEEE" android:pathData="M20,100h20v20h-20z" />
+    <path android:fillColor="#EEEEEE" android:pathData="M60,100h20v20h-20z" />
+    <path android:fillColor="#EEEEEE" android:pathData="M100,100h20v20h-20z" />
+    <!-- Selected Day 7 -->
+    <path android:fillColor="#009688" android:pathData="M140,100 c-5,0 -10,5 -10,10 s5,10 10,10 h20 c5,0 10,-5 10,-10 s-5,-10 -10,-10 z" />
+    <path android:fillColor="#EEEEEE" android:pathData="M180,100h20v20h-20z" />
+    <path android:fillColor="#EEEEEE" android:pathData="M220,100h20v20h-20z" />
+    <path android:fillColor="#EEEEEE" android:pathData="M260,100h20v20h-20z" />
+
+    <!-- Row 3 -->
+    <path android:fillColor="#EEEEEE" android:pathData="M20,140h20v20h-20z" />
+    <path android:fillColor="#EEEEEE" android:pathData="M60,140h20v20h-20z" />
+    <path android:fillColor="#EEEEEE" android:pathData="M100,140h20v20h-20z" />
+    <!-- Selected Day 14 -->
+    <path android:fillColor="#009688" android:pathData="M140,140 c-5,0 -10,5 -10,10 s5,10 10,10 h20 c5,0 10,-5 10,-10 s-5,-10 -10,-10 z" />
+    <path android:fillColor="#EEEEEE" android:pathData="M180,140h20v20h-20z" />
+    <path android:fillColor="#EEEEEE" android:pathData="M220,140h20v20h-20z" />
+    <path android:fillColor="#EEEEEE" android:pathData="M260,140h20v20h-20z" />
+
+    <!-- Icons on Calendar -->
+    <!-- Trash Icon on 31st (Row 0) -->
+    <path android:fillColor="#009688" android:pathData="M145,45h10v10h-10z" />
+    <!-- Recycle Icon on 14th -->
+    <path android:fillColor="#4CAF50" android:pathData="M105,145h10v10h-10z" />
+
+</vector>

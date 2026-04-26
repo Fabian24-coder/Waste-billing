@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">WasteBillingApp</string>
+    <string name="register">REGISTER</string>
+    <string-array name="garbage_types">
+        <item>Domestic</item>
+        <item>Commercial</item>
+        <item>Industrial</item>
+    </string-array>
+
+    <!-- Dashboard Strings -->
+    <string name="welcome_back">Welcome Back,</string>
+    <string name="user_name">User Name</string>
+    <string name="outstanding_balance">Outstanding Balance</string>
+    <string name="balance_amount">UGX 15,000</string>
+    <string name="pay_now">PAY NOW</string>
+    <string name="collection">Collection</string>
+    <string name="collection_time">Mon, 10 AM</string>
+    <string name="reports">Reports</string>
+    <string name="view_history">View History</string>
+    <string name="complaint">Complaint</string>
+    <string name="raise_ticket">Raise Ticket</string>
+    <string name="account">Account</string>
+    <string name="settings">Settings</string>
+    <string name="app_logo_desc">Application Logo</string>
+</resources>
