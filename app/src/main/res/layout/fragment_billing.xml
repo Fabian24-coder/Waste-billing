@@ -93,6 +93,43 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- Extra Pickup Payment Section (Initially Hidden) -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_extra_pickup_due"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#FFF8E1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Extra Pickup Due Now"
+                        android:textColor="#F57C00"
+                        android:textStyle="bold"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_extra_pickup_amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Amount: UGX 5,000"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
             <!-- History Item 1 -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -213,14 +250,32 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
-                    <EditText
-                        android:id="@+id/et_momo_number"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:background="@drawable/edit_text_border"
-                        android:hint="Enter Phone Number"
-                        android:inputType="phone"
-                        android:paddingHorizontal="12dp" />
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+256 "
+                            android:textColor="#000000"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/et_momo_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:hint="7xx xxx xxx"
+                            android:inputType="phone"
+                            android:maxLength="9"
+                            android:textSize="16sp" />
+                    </LinearLayout>
 
                     <Button
                         android:id="@+id/btn_pay_momo"

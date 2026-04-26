@@ -25,7 +25,23 @@ class AccountFragment : Fragment() {
             bottomNav?.selectedItemId = R.id.navigation_home
         }
 
-        // 2. Logout Functionality
+        // 2. Open Notifications Screen
+        view.findViewById<TextView>(R.id.btn_notifications).setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.container, NotificationsFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
+        // 3. Open App Settings Screen
+        view.findViewById<TextView>(R.id.btn_settings).setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.container, SettingsFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
+        // 4. Logout Functionality
         view.findViewById<TextView>(R.id.btn_logout).setOnClickListener {
             Toast.makeText(context, "Logged out successfully", Toast.LENGTH_SHORT).show()
             val intent = Intent(activity, LoginActivity::class.java)
@@ -33,13 +49,9 @@ class AccountFragment : Fragment() {
             startActivity(intent)
         }
 
-        // 3. Menu Item Feedbacks
+        // 5. Other Menu Item Feedbacks
         view.findViewById<TextView>(R.id.btn_payment_methods).setOnClickListener {
             Toast.makeText(context, "Redirecting to Payment Methods...", Toast.LENGTH_SHORT).show()
-        }
-
-        view.findViewById<TextView>(R.id.btn_settings).setOnClickListener {
-            Toast.makeText(context, "Opening App Settings...", Toast.LENGTH_SHORT).show()
         }
 
         return view

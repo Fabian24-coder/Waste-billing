@@ -1,234 +1,331 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F8FDFF">
 
-    <!-- Top Gradient Header -->
-    <View
-        android:id="@+id/header_bg"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@drawable/header_gradient"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tv_welcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome, Alex!"
-        android:textColor="#FFFFFF"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="48dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <!-- Top Gradient Header -->
+        <View
+            android:id="@+id/header_bg"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/header_gradient"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/iv_profile"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_profile_placeholder"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintTop_toTopOf="@id/tv_welcome"
-        app:layout_constraintBottom_toBottomOf="@id/tv_welcome"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <TextView
+            android:id="@+id/tv_welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome, Alex!"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="48dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Current Amount Card -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_amount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="20dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="8dp"
-        app:layout_constraintTop_toBottomOf="@id/tv_welcome">
+        <ImageView
+            android:id="@+id/iv_profile"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_profile_placeholder"
+            android:layout_marginEnd="24dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:layout_constraintTop_toTopOf="@id/tv_welcome"
+            app:layout_constraintBottom_toBottomOf="@id/tv_welcome"
+            app:layout_constraintEnd_toEndOf="parent" />
 
+        <!-- Current Amount Card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="20dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_welcome">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Current Amount Due:"
+                    android:textColor="#333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="UGX 15,000"
+                    android:textColor="#000000"
+                    android:textSize="36sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="8dp" />
+
+                <Button
+                    android:id="@+id/btn_pay_now"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pay Now"
+                    android:backgroundTint="#009688"
+                    android:textColor="#FFFFFF"
+                    android:paddingHorizontal="40dp"
+                    android:layout_marginTop="16dp"
+                    android:textAllCaps="false"
+                    app:cornerRadius="25dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Quick Actions Row -->
         <LinearLayout
+            android:id="@+id/quick_actions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="24dp"
-            android:gravity="center">
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/card_amount">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Current Amount Due:"
-                android:textColor="#333333"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/tv_amount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="UGX 15,000"
-                android:textColor="#000000"
-                android:textSize="36sp"
-                android:textStyle="bold"
-                android:layout_marginTop="8dp" />
-
-            <Button
-                android:id="@+id/btn_pay_now"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pay Now"
-                android:backgroundTint="#009688"
-                android:textColor="#FFFFFF"
-                android:paddingHorizontal="40dp"
-                android:layout_marginTop="16dp"
-                android:textAllCaps="false"
-                app:cornerRadius="25dp" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <!-- Last Service Card -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_service"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="16dp"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="2dp"
-        app:layout_constraintTop_toBottomOf="@id/card_amount">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp">
-
-            <View
-                android:id="@+id/icon_bg"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:background="#E0F2F1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
-
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/ic_truck"
-                app:layout_constraintTop_toTopOf="@id/icon_bg"
-                app:layout_constraintBottom_toBottomOf="@id/icon_bg"
-                app:layout_constraintStart_toStartOf="@id/icon_bg"
-                app:layout_constraintEnd_toEndOf="@id/icon_bg" />
-
-            <TextView
-                android:id="@+id/tv_service_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Last Service"
-                android:textColor="#000000"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:layout_marginStart="16dp"
-                app:layout_constraintStart_toEndOf="@id/icon_bg"
-                app:layout_constraintTop_toTopOf="@id/icon_bg" />
-
-            <TextView
-                android:id="@+id/tv_service_desc"
+            <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Picked up yesterday,\n8 AM"
-                android:textColor="#666666"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="@id/tv_service_title"
-                app:layout_constraintTop_toBottomOf="@id/tv_service_title"
-                app:layout_constraintEnd_toEndOf="parent" />
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
+                <LinearLayout
+                    android:id="@+id/btn_request_pickup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true">
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_truck" app:tint="#009688"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Extra Pickup" android:textSize="12sp" android:layout_marginTop="4dp" android:textColor="#333333" android:textStyle="bold"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
+                <LinearLayout
+                    android:id="@+id/btn_report_issue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true">
+                    <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_report_image" app:tint="#D32F2F"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Report Issue" android:textSize="12sp" android:layout_marginTop="4dp" android:textColor="#333333" android:textStyle="bold"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
 
-    <!-- Trend Chart Card -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_trend"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="24dp"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="2dp"
-        app:layout_constraintTop_toBottomOf="@id/card_service"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <LinearLayout
+        <!-- Last Service Card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_service"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:layout_constraintTop_toBottomOf="@id/quick_actions">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Waste Disposal Trend (KG)"
-                android:textColor="#000000"
-                android:textStyle="bold"
-                android:textSize="16sp" />
-
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:orientation="horizontal"
-                android:layout_marginTop="16dp">
+                android:layout_height="wrap_content"
+                android:padding="16dp">
 
-                <!-- Y-Axis Labels -->
-                <LinearLayout
+                <View
+                    android:id="@+id/icon_bg"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="#E0F2F1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_truck"
+                    app:layout_constraintTop_toTopOf="@id/icon_bg"
+                    app:layout_constraintBottom_toBottomOf="@id/icon_bg"
+                    app:layout_constraintStart_toStartOf="@id/icon_bg"
+                    app:layout_constraintEnd_toEndOf="@id/icon_bg" />
+
+                <TextView
+                    android:id="@+id/tv_service_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="end"
-                    android:paddingEnd="8dp">
-                    <TextView android:layout_width="wrap_content" android:layout_height="0dp" android:layout_weight="1" android:text="100" android:textSize="10sp" android:textColor="#757575"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="0dp" android:layout_weight="1" android:text="75" android:textSize="10sp" android:textColor="#757575"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="0dp" android:layout_weight="1" android:text="50" android:textSize="10sp" android:textColor="#757575"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="0dp" android:layout_weight="1" android:text="25" android:textSize="10sp" android:textColor="#757575"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textSize="10sp" android:textColor="#757575"/>
-                </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:text="Last Service"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_marginStart="16dp"
+                    app:layout_constraintStart_toEndOf="@id/icon_bg"
+                    app:layout_constraintTop_toTopOf="@id/icon_bg" />
 
-                <!-- Chart Container -->
-                <LinearLayout
-                    android:id="@+id/chart_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:gravity="bottom"
-                    android:weightSum="7"
-                    android:background="@drawable/chart_grid_bg">
+                <TextView
+                    android:id="@+id/tv_service_desc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Picked up yesterday,\n8 AM"
+                    android:textColor="#666666"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="@id/tv_service_title"
+                    app:layout_constraintTop_toBottomOf="@id/tv_service_title"
+                    app:layout_constraintEnd_toEndOf="parent" />
 
-                    <View android:id="@+id/bar1" android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1" android:layout_marginHorizontal="4dp" android:background="#009688"/>
-                    <View android:id="@+id/bar2" android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1" android:layout_marginHorizontal="4dp" android:background="#009688"/>
-                    <View android:id="@+id/bar3" android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1" android:layout_marginHorizontal="4dp" android:background="#009688"/>
-                    <View android:id="@+id/bar4" android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1" android:layout_marginHorizontal="4dp" android:background="#009688"/>
-                    <View android:id="@+id/bar5" android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1" android:layout_marginHorizontal="4dp" android:background="#009688"/>
-                    <View android:id="@+id/bar6" android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1" android:layout_marginHorizontal="4dp" android:background="#009688"/>
-                    <View android:id="@+id/bar7" android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1" android:layout_marginHorizontal="4dp" android:background="#009688"/>
-                </LinearLayout>
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
-            <!-- X-Axis Labels (Days) -->
+        <!-- Recycling Tip Card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_tip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="#E8F5E9"
+            app:layout_constraintTop_toBottomOf="@id/card_service">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingStart="25dp"
-                android:weightSum="7">
-                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Mon" android:textSize="10sp" android:gravity="center" android:textColor="#757575"/>
-                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Tue" android:textSize="10sp" android:gravity="center" android:textColor="#757575"/>
-                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Wed" android:textSize="10sp" android:gravity="center" android:textColor="#757575"/>
-                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Thu" android:textSize="10sp" android:gravity="center" android:textColor="#757575"/>
-                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Fri" android:textSize="10sp" android:gravity="center" android:textColor="#757575"/>
-                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Sat" android:textSize="10sp" android:gravity="center" android:textColor="#757575"/>
-                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Sun" android:textSize="10sp" android:gravity="center" android:textColor="#757575"/>
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Recycling Tip of the Day"
+                    android:textColor="#2E7D32"
+                    android:textStyle="bold"
+                    android:textSize="14sp"/>
+                <TextView
+                    android:id="@+id/tv_recycling_tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rinse your containers before recycling to avoid contamination."
+                    android:textColor="#333333"
+                    android:layout_marginTop="4dp"
+                    android:textSize="14sp"/>
             </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+        <!-- Trend Chart Card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_trend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:layout_constraintTop_toBottomOf="@id/card_tip"
+            app:layout_constraintBottom_toBottomOf="parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Waste Disposal Trend (KG)"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="16dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="end"
+                        android:paddingEnd="8dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="0dp" android:layout_weight="1" android:text="100" android:textSize="10sp" android:textColor="#757575"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="0dp" android:layout_weight="1" android:text="75" android:textSize="10sp" android:textColor="#757575"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="0dp" android:layout_weight="1" android:text="50" android:textSize="10sp" android:textColor="#757575"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="0dp" android:layout_weight="1" android:text="25" android:textSize="10sp" android:textColor="#757575"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textSize="10sp" android:textColor="#757575"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/chart_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="bottom"
+                        android:weightSum="7"
+                        android:background="@drawable/chart_grid_bg">
+
+                        <View android:id="@+id/bar1" android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1" android:layout_marginHorizontal="4dp" android:background="#009688"/>
+                        <View android:id="@+id/bar2" android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1" android:layout_marginHorizontal="4dp" android:background="#009688"/>
+                        <View android:id="@+id/bar3" android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1" android:layout_marginHorizontal="4dp" android:background="#009688"/>
+                        <View android:id="@+id/bar4" android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1" android:layout_marginHorizontal="4dp" android:background="#009688"/>
+                        <View android:id="@+id/bar5" android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1" android:layout_marginHorizontal="4dp" android:background="#009688"/>
+                        <View android:id="@+id/bar6" android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1" android:layout_marginHorizontal="4dp" android:background="#009688"/>
+                        <View android:id="@+id/bar7" android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1" android:layout_marginHorizontal="4dp" android:background="#009688"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="25dp"
+                    android:weightSum="7">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Mon" android:textSize="10sp" android:gravity="center" android:textColor="#757575"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Tue" android:textSize="10sp" android:gravity="center" android:textColor="#757575"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Wed" android:textSize="10sp" android:gravity="center" android:textColor="#757575"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Thu" android:textSize="10sp" android:gravity="center" android:textColor="#757575"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Fri" android:textSize="10sp" android:gravity="center" android:textColor="#757575"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Sat" android:textSize="10sp" android:gravity="center" android:textColor="#757575"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Sun" android:textSize="10sp" android:gravity="center" android:textColor="#757575"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

@@ -8,6 +8,9 @@ import com.example.wastebillingapp.databinding.ActivityDashboardBinding
 class DashboardActivity : AppCompatActivity() {
     
     private lateinit var binding: ActivityDashboardBinding
+    
+    // Flag to track if navigation was triggered programmatically (e.g. from Extra Pickup)
+    var isProgrammaticNav: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +31,13 @@ class DashboardActivity : AppCompatActivity() {
                     true
                 }
                 R.id.navigation_billing -> {
+                    // Only reset the flag if it was a direct user click on the tab
+                    if (!isProgrammaticNav) {
+                        BillingFragment.isExtraPickupRequested = false
+                    }
+                    // Reset our internal tracking flag for the next interaction
+                    isProgrammaticNav = false
+
                     loadFragment(BillingFragment())
                     true
                 }

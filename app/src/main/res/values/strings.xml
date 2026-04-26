@@ -2,9 +2,20 @@
     <string name="app_name">WasteBillingApp</string>
     <string name="register">REGISTER</string>
     <string-array name="garbage_types">
-        <item>Domestic</item>
-        <item>Commercial</item>
-        <item>Industrial</item>
+        <item>Domestic Waste</item>
+        <item>Organic Waste</item>
+        <item>Plastic/Recyclables</item>
+        <item>Electronic Waste</item>
+        <item>Hazardous Waste</item>
+    </string-array>
+
+    <string-array name="issue_categories">
+        <item>Missed Collection</item>
+        <item>Billing Discrepancy</item>
+        <item>Damaged Bin</item>
+        <item>Service Delay</item>
+        <item>Account Access</item>
+        <item>Other</item>
     </string-array>
 
     <!-- Dashboard Strings -->
